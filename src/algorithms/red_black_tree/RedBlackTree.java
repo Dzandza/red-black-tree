@@ -55,7 +55,7 @@ public class RedBlackTree<Type extends Comparable> {
 
     private void rotateRight(Node<Type> node) {
         if(node == null) throw new IllegalArgumentException();
-        else if(node.isLeaf() || node.hasLeftChild()) return;
+        else if(node.isLeaf() || !node.hasLeftChild()) return;
 
         Node<Type> leftChild = node.getLeftChild();
         node.setLeftChild(leftChild.getRightChild());
@@ -104,6 +104,7 @@ public class RedBlackTree<Type extends Comparable> {
                     if(newNode == newNode.getParent().getLeftChild()) {
                         newNode = newNode.getParent();
                         rotateRight(newNode);
+
                     }
 
                     newNode.getParent().setColor(Node.Color.BLACK);
@@ -135,6 +136,10 @@ public class RedBlackTree<Type extends Comparable> {
         else newNodeParent.setRightChild(newNode);
 
         fixTree(newNode);
+    }
+
+    public Node<Type> getRoot() {
+        return root;
     }
 
     @Override
