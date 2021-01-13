@@ -66,7 +66,7 @@ public class Main {
                         input = scanner.nextLine();
                         try {
                             Integer newValue = Integer.parseInt(input);
-                            tree.insert(newValue);
+                            tree.delete(newValue);
                             break;
                         } catch (NumberFormatException e) {
                             System.out.println("Neispravan unos. Pokušajte ponovo...");
@@ -102,8 +102,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        runDefault();
-//        runProgram();
+//        runDefault();
+        runProgram();
 
     }
 }
