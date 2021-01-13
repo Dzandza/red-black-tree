@@ -27,10 +27,6 @@ public class Node<Type extends Comparable> {
         this.leftChild = leftChild;
     }
 
-    public boolean hasLeftChild() {
-        return leftChild != null;
-    }
-
     public Node<Type> getRightChild() {
         return rightChild;
     }
@@ -39,17 +35,20 @@ public class Node<Type extends Comparable> {
         this.rightChild = rightChild;
     }
 
+    public boolean hasLeftChild() {
+        return leftChild.getValue() != null;
+    }
 
     public boolean hasRightChild() {
-        return rightChild != null;
+        return rightChild.getValue() != null;
     }
 
     public boolean hasBothChildren() {
-        return rightChild != null && leftChild != null;
+        return rightChild.getValue() != null && leftChild.getValue() != null;
     }
 
     public boolean isLeaf() {
-        return rightChild == null && leftChild == null;
+        return rightChild.getValue() == null && leftChild.getValue() == null;
     }
 
     public Node<Type> getParent() {
@@ -60,9 +59,8 @@ public class Node<Type extends Comparable> {
         this.parent = parent;
     }
 
-
     public boolean isRoot() {
-        return parent == null;
+        return parent.value == null;
     }
 
     public Type getValue() {
